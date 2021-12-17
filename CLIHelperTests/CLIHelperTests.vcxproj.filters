@@ -18,5 +18,38 @@
     <ClCompile Include="test_runner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="group_all_fields_empty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="group_chop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="group_extract_field.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="group_field_count.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="group_field_is.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="group_find_match.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="group_grab_from_space.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="group_grab_until_space.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="group_read_input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="group_strip_leading_spaces.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ifstream_tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
