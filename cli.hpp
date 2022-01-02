@@ -11,6 +11,7 @@
 
 #include <istream>
 #include <string>
+#include <cstddef>
 
 
 //Extracts the contents of inputStream up to, but excluding the newline
@@ -40,9 +41,13 @@ void extractField(/**/
 
 //Returns true if the field at index matches the key,
 //returns false otherwise
-bool fieldIs(const char *key, const size_t fieldNumber, const char *fields);/**/
+//
+//    fieldCount(fields) > 0
+//    0 <= index < fieldCount(fields)
+bool fieldIs(const char *key, const size_t index, const char *fields);/**/
 
-//Returns true if there are no fields in the line, returns false otherwise
+//Returns true if there are no fields in the line,
+//returns false otherwise
 bool allFieldsEmpty(const std::string &fields);/**/
 
 
