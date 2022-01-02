@@ -23,7 +23,7 @@ using std::vector;
 
 
 
-
+/* Internal functions *********************************************************/
 
 
 
@@ -88,6 +88,11 @@ void chop(const string &piece, string &whole)
     const size_t chopStart = positionOfStart + piece.length();
     whole = whole.substr(chopStart);
 }
+
+
+
+
+/* End internal functions *****************************************************/
 
 
 
