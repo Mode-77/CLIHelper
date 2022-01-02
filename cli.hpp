@@ -38,8 +38,9 @@ void extractField(/**/
     const size_t index,
     std::string &result);
 
-//Returns 1 if the field at index matches the key, returns 0 otherwise
-int fieldIs(const char *key, const size_t fieldNumber, const char *fields);/**/
+//Returns true if the field at index matches the key,
+//returns false otherwise
+bool fieldIs(const char *key, const size_t fieldNumber, const char *fields);/**/
 
 //Returns true if there are no fields in the line, returns false otherwise
 bool allFieldsEmpty(const std::string &fields);/**/

@@ -172,7 +172,7 @@ void readInput(std::istream &inputStream, std::string &inputString)
 
 // fieldCount(fields) > 0
 // 0 <= fieldNumber < fieldCount(fields)
-int fieldIs(const char *key, const size_t fieldNumber, const char *fields)
+bool fieldIs(const char *key, const size_t fieldNumber, const char *fields)
 {
     string temp(fields);    // Stringify
     string result;
