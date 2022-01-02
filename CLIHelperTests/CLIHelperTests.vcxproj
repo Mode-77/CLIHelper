@@ -152,7 +152,6 @@
     <ClCompile Include="group_extract_field.cpp" />
     <ClCompile Include="group_field_count.cpp" />
     <ClCompile Include="group_field_is.cpp" />
-    <ClCompile Include="group_find_match.cpp" />
     <ClCompile Include="group_grab_from_space.cpp" />
     <ClCompile Include="group_grab_until_space.cpp" />
     <ClCompile Include="group_read_input.cpp" />

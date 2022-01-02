@@ -185,28 +185,3 @@ bool allFieldsEmpty(const string &fields)
 {
     return fieldCount(fields) == 0;
 }
-
-/*
-int FindMatch(const char* buffer, const char* list[], unsigned length)
-{
-    for (unsigned i = 0; i < length; i++) {
-        if (!strcmp(buffer, list[i])) {
-            return i;
-        }
-    }
-    return -1;
-}
-*/
-
-
-
-
-// list shall be terminated with a null pointer
-int findMatch(const char *key, const char *list[])
-{
-    for(size_t i = 0; list[i] != nullptr; i++) {
-        if(!strcmp(key, list[i]))
-            return i;
-    }
-    return -1;
-}

@@ -33,9 +33,6 @@
     <ClCompile Include="group_field_is.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="group_find_match.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="group_grab_from_space.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
