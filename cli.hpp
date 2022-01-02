@@ -12,7 +12,6 @@
 #include <istream>
 #include <string>
 
-using std::string;
 
 
 void readInput(std::istream &inputStream, std::string &inputString);
