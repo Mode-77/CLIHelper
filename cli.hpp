@@ -11,31 +11,30 @@
 
 #include <istream>
 #include <string>
-#include <vector>
 
 using std::string;
-using std::vector;
+
 
 void readInput(std::istream &inputStream, std::string &inputString);
 
-void stripLeadingSpaces(string &input);
+void stripLeadingSpaces(std::string &input);
 
-void grabUntilSpace(string &input);
+void grabUntilSpace(std::string &input);
 
-void grabFromSpace(string &input);
+void grabFromSpace(std::string &input);
 
-void chop(const string &piece, string &whole);
+void chop(const std::string &piece, std::string &whole);
 
-int fieldCount(const string &input);
+int fieldCount(const std::string &input);
 
 void extractField(
-    const string &input,
+    const std::string &input,
     const size_t index,
-    string &result);
+    std::string &result);
 
 int fieldIs(const char *key, const size_t fieldNumber, const char *fields);
 
-bool allFieldsEmpty(const string &fields);
+bool allFieldsEmpty(const std::string &fields);
 
 // bool findMatch(const char *key, const char *list[]);
 
