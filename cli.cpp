@@ -91,9 +91,9 @@ void chop(const string &piece, string &whole)
 
 
 
-int fieldCount(const string &input)
+unsigned int fieldCount(const string &input)
 {
-    int fieldsCounted = 0;
+    unsigned int fieldsCounted = 0;
 
     // size_t positionOfFirstNonSpace;
     // size_t positionOfNextSpace;

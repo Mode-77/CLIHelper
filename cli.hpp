@@ -28,7 +28,7 @@ void grabFromSpace(std::string &input);//exclude
 void chop(const std::string &piece, std::string &whole);//exclude
 
 //Returns the number of fields in the line
-int fieldCount(const std::string &input);/**/
+unsigned int fieldCount(const std::string &input);/**/
 
 //Stores the field at index in result.
 //
