@@ -30,7 +30,7 @@ static void stripLeadingSpaces(std::string &input)
 {
     const size_t positionOfFirstNonSpace = input.find_first_not_of(" ");
     if(positionOfFirstNonSpace == std::string::npos) {
-        input.clear();
+        input.clear(); //input is all spaces or empty; return the empty string.
         return;
     }
     input = input.substr(positionOfFirstNonSpace);
