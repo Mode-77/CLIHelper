@@ -56,7 +56,6 @@ static void grabUntilSpace(std::string &input)
 
 
 
-// input is not the empty string.
 static void grabFromSpace(std::string &input)
 {
     const size_t positionOfNextSpace = input.find_first_of(" ");
