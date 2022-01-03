@@ -28,7 +28,7 @@ using std::vector;
 
 
 
-void stripLeadingSpaces(string &input)
+static void stripLeadingSpaces(string &input)
 {
     const size_t positionOfFirstNonSpace = input.find_first_not_of(" ");
     if(positionOfFirstNonSpace == string::npos) {
@@ -41,7 +41,7 @@ void stripLeadingSpaces(string &input)
 
 
 // input is not the empty string.
-void grabUntilSpace(string &input)
+static void grabUntilSpace(string &input)
 {
     const size_t positionOfNextSpace = input.find_first_of(" ");
     if(positionOfNextSpace == 0) {
@@ -59,7 +59,7 @@ void grabUntilSpace(string &input)
 
 
 // input is not the empty string.
-void grabFromSpace(string &input)
+static void grabFromSpace(string &input)
 {
     const size_t positionOfNextSpace = input.find_first_of(" ");
     if(positionOfNextSpace == string::npos) {
@@ -77,7 +77,7 @@ void grabFromSpace(string &input)
 
 // piece is a substring of whole.
 // piece will be found at index 0.
-void chop(const string &piece, string &whole)
+static void chop(const string &piece, string &whole)
 {
     if(piece.empty())
         return;

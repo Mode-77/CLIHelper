@@ -4,14 +4,26 @@
 
 #include <string>
 #include <vector>
+#include <cassert>
 
 using std::string;
 using std::vector;
 
 
 
+// piece is a substring of whole.
+// piece will be found at index 0.
+static void chop(const string &piece, string &whole)
+{
+    if(piece.empty())
+        return;
+    const size_t positionOfStart = whole.find(piece);
 
+    assert(positionOfStart == 0);
 
+    const size_t chopStart = positionOfStart + piece.length();
+    whole = whole.substr(chopStart);
+}
 
 
 

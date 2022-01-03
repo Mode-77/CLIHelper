@@ -13,6 +13,16 @@ using std::vector;
 
 
 
+static void stripLeadingSpaces(string &input)
+{
+    const size_t positionOfFirstNonSpace = input.find_first_not_of(" ");
+    if(positionOfFirstNonSpace == string::npos) {
+        input.clear();
+        return;
+    }
+    input = input.substr(positionOfFirstNonSpace);
+}
+
 
 
 

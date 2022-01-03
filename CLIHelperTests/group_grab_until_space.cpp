@@ -12,6 +12,21 @@ using std::vector;
 
 
 
+// input is not the empty string.
+static void grabUntilSpace(string &input)
+{
+    const size_t positionOfNextSpace = input.find_first_of(" ");
+    if(positionOfNextSpace == 0) {
+        input = "";
+        return;
+    }
+    if(positionOfNextSpace == string::npos)
+        return;
+
+    const size_t lengthOfSubstring = positionOfNextSpace;
+
+    input = input.substr(0, lengthOfSubstring);
+}
 
 
 

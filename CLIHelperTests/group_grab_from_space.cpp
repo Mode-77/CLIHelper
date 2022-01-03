@@ -12,6 +12,17 @@ using std::vector;
 
 
 
+// input is not the empty string.
+static void grabFromSpace(string &input)
+{
+    const size_t positionOfNextSpace = input.find_first_of(" ");
+    if(positionOfNextSpace == string::npos) {
+        input = "";
+        return;
+    }
+
+    input = input.substr(positionOfNextSpace);
+}
 
 
 
