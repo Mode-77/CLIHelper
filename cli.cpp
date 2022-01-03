@@ -13,8 +13,6 @@
 #include <cassert>
 #include <cstring>
 
-using std::string;
-using std::vector;
 
 
 
@@ -28,10 +26,10 @@ using std::vector;
 
 
 
-static void stripLeadingSpaces(string &input)
+static void stripLeadingSpaces(std::string &input)
 {
     const size_t positionOfFirstNonSpace = input.find_first_not_of(" ");
-    if(positionOfFirstNonSpace == string::npos) {
+    if(positionOfFirstNonSpace == std::string::npos) {
         input.clear();
         return;
     }
@@ -41,14 +39,14 @@ static void stripLeadingSpaces(string &input)
 
 
 // input is not the empty string.
-static void grabUntilSpace(string &input)
+static void grabUntilSpace(std::string &input)
 {
     const size_t positionOfNextSpace = input.find_first_of(" ");
     if(positionOfNextSpace == 0) {
         input = "";
         return;
     }
-    if(positionOfNextSpace == string::npos)
+    if(positionOfNextSpace == std::string::npos)
         return;
 
     const size_t lengthOfSubstring = positionOfNextSpace;
@@ -59,10 +57,10 @@ static void grabUntilSpace(string &input)
 
 
 // input is not the empty string.
-static void grabFromSpace(string &input)
+static void grabFromSpace(std::string &input)
 {
     const size_t positionOfNextSpace = input.find_first_of(" ");
-    if(positionOfNextSpace == string::npos) {
+    if(positionOfNextSpace == std::string::npos) {
         input = "";
         return;
     }
@@ -77,7 +75,7 @@ static void grabFromSpace(string &input)
 
 // piece is a substring of whole.
 // piece will be found at index 0.
-static void chop(const string &piece, string &whole)
+static void chop(const std::string &piece, std::string &whole)
 {
     if(piece.empty())
         return;
@@ -96,23 +94,17 @@ static void chop(const string &piece, string &whole)
 
 
 
-unsigned int fieldCount(const string &input)
+void readInput(std::istream &inputStream, std::string &inputString)
+{
+    std::getline(inputStream, inputString);
+}
+
+
+unsigned int fieldCount(const std::string &input)
 {
     unsigned int fieldsCounted = 0;
 
-    // size_t positionOfFirstNonSpace;
-    // size_t positionOfNextSpace;
-
-    // positionOfFirstNonSpace = input.find_first_not_of(" ");
-    // while(positionOfFirstNonSpace != string::npos) {
-    //     fieldsCounted++;
-    //     positionOfNextSpace = input.find_first_of(" ", positionOfFirstNonSpace);
-    //     positionOfFirstNonSpace = input.find_first_not_of(" ", positionOfNextSpace);
-    // }
-
-    // return fieldsCounted;
-
-    string remainder(input);            // Make a copy
+    std::string remainder(input);
     stripLeadingSpaces(remainder);
     while(!remainder.empty()) {
         grabFromSpace(remainder);
@@ -123,31 +115,31 @@ unsigned int fieldCount(const string &input)
 }
 
 
+bool allFieldsEmpty(const std::string &fields)
+{
+    return fieldCount(fields) == 0;
+}
+
+
+// fieldCount(fields) > 0
+// 0 <= fieldNumber < fieldCount(fields)
+bool fieldIs(const char *key, const size_t fieldNumber, const char *fields)
+{
+    std::string temp(fields);    // Stringify
+    std::string result;
+    extractField(temp, fieldNumber, result);
+    return result.compare(key) == 0;
+}
+
 
 // fieldCount(input) > 0
 // 0 <= index < fieldCount(input)
 void extractField(
-    const string &input,
+    const std::string &input,
     const size_t index,
-    string &result)
+    std::string &result)
 {
-    // size_t fieldsCounted = 0;
-
-    // string remainder(input);
-    // stripLeadingSpaces(remainder);
-    // while(!remainder.empty()) {
-    //     string foundField(remainder);
-    //     grabUntilSpace(foundField);
-    //     fieldsCounted++;
-    //     if(fieldsCounted > index) {
-    //         result = foundField;
-    //         return;
-    //     }
-    //     chop(foundField, remainder);
-    //     stripLeadingSpaces(remainder);
-    // }
-
-    string remainder(input);
+    std::string remainder(input);
     stripLeadingSpaces(remainder);
 
     if(index == 0) {
@@ -158,35 +150,4 @@ void extractField(
 
     grabFromSpace(remainder);
     extractField(remainder, index - 1, result);
-}
-
-
-
-void readInput(std::istream &inputStream, std::string &inputString)
-{
-    std::getline(inputStream, inputString);
-}
-
-
-
-
-
-
-
-
-
-// fieldCount(fields) > 0
-// 0 <= fieldNumber < fieldCount(fields)
-bool fieldIs(const char *key, const size_t fieldNumber, const char *fields)
-{
-    string temp(fields);    // Stringify
-    string result;
-    extractField(temp, fieldNumber, result);
-    return result.compare(key) == 0;
-}
-
-
-bool allFieldsEmpty(const string &fields)
-{
-    return fieldCount(fields) == 0;
 }
