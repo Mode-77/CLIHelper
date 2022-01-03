@@ -61,10 +61,9 @@ static void grabFromSpace(std::string &input)
 {
     const size_t positionOfNextSpace = input.find_first_of(" ");
     if(positionOfNextSpace == std::string::npos) {
-        input = "";
+        input.clear(); //No spaces in input or empty; return the empty string.
         return;
     }
-
     input = input.substr(positionOfNextSpace);
 }
 

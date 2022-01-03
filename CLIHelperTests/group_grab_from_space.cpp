@@ -12,15 +12,14 @@ using std::vector;
 
 
 
-// input is not the empty string.
-static void grabFromSpace(string &input)
+
+static void grabFromSpace(std::string &input)
 {
     const size_t positionOfNextSpace = input.find_first_of(" ");
-    if(positionOfNextSpace == string::npos) {
-        input = "";
+    if(positionOfNextSpace == std::string::npos) {
+        input.clear(); //No spaces in input or empty; return the empty string.
         return;
     }
-
     input = input.substr(positionOfNextSpace);
 }
 
@@ -32,6 +31,12 @@ TEST_GROUP(grabFromSpace)
 
 };
 
+TEST(grabFromSpace, Leaves_An_Empty_String_Unchanged)
+{
+    string testInput("");
+    grabFromSpace(testInput);
+    CHECK_EQUAL("", testInput);
+}
 
 TEST(grabFromSpace, Captures_All_From_Space_And_Beyond)
 {
