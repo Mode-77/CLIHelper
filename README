@@ -1,0 +1,42 @@
+CLIHelper 
+
+Command-line Interface Helper Library
+
+
+A simple library aimed at easing the pain of building command-line interfaces
+and read-eval-print loops by handling argument capturing and user input.
+
+CLIHelper works by simply scanning and lexing strings in-place with the help
+of the C++ standard library.
+
+
+
+
+
+At its core, CLIHelper is a small lexer and uses the concept of fields (which
+can also be thought of as tokens)
+
+A field is simply a substring that contains no spaces.
+
+"plant"     a field
+"Literary"  another field
+
+When a field contains a space character, it becomes two fields.
+
+"lucid imagination" a string containing two fields
+
+Space characters only serve to separate fields; if one or more space characters
+appear at either the beginning or end of a field, CLIHelper ignores them.
+
+" snail  "
+"snail"     these are the same to CLIHelper.
+
+Non-alphanumeric characters are treated the same as alphanumeric characters.
+
+"lucid + snail"     three distinct fields: "lucid" "+" "snail"
+
+Using these concepts, you can parse user input strings like:
+
+romdump -WHOLE -v --checksum
+
+with no problem at all.
