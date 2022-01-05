@@ -10,16 +10,17 @@
 
 
 #include <istream>
+#include <iostream>
 #include <string>
 #include <cstddef>
 
 
 
-//Extracts the contents of inputStream up to, but excluding the newline
-//character and stores them in inputString.
+//Extracts the contents of stream up to, but excluding the newline
+//character and stores them in buffer.
 //
-//Original contents of inputString are lost.
-void readInput(std::istream &inputStream, std::string &inputString);
+//Original contents of buffer are lost.
+void readInput(std::string &buffer, std::istream &stream = std::cin);
 
 
 //Returns the number of fields in the line

@@ -97,9 +97,9 @@ static void chop(const std::string &piece, std::string &whole)
 
 
 
-void readInput(std::istream &inputStream, std::string &inputString)
+void readInput(std::string &buffer, std::istream &stream)
 {
-    std::getline(inputStream, inputString);
+    std::getline(stream, buffer);
 }
 
 

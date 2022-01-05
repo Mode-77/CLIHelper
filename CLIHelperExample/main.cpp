@@ -16,7 +16,7 @@ int main()
 
     while(!fieldIs("quit", 0, userInput.c_str())) {
         std::cout << ">";
-        readInput(std::cin, userInput);
+        readInput(userInput);
 
         if(allFieldsEmpty(userInput)) {
             continue;
