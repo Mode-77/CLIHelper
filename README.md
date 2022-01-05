@@ -39,7 +39,7 @@ Using these concepts, you can parse user input strings like:
 with no problem at all.
 
 ## API at a glance
-```
+```c++
 //Extracts the contents of inputStream up to, but excluding the newline
 //character and stores them in inputString.
 //
