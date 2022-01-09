@@ -40,38 +40,30 @@ with no problem at all.
 
 ## API at a glance
 ```c++
-//Extracts the contents of inputStream up to, but excluding the newline
-//character and stores them in inputString.
-//
-//Original contents of inputString are lost.
-void readInput(std::istream &inputStream, std::string &inputString);
+//Returns the contents of stream up to, but excluding the newline character.
+std::string readInput(std::istream &stream = std::cin);
 
 
-//Returns the number of fields in the line
-unsigned int fieldCount(const std::string &input);
+//Returns true if there are no fields in the line or false
+//if the line has at least one field.
+bool allFieldsEmpty(const std::string &line);
 
 
-//Returns true if there are no fields in the line,
-//returns false otherwise
-bool allFieldsEmpty(const std::string &fields);
+//Returns the number of fields in the line.
+unsigned int fieldCount(const std::string &line);
 
 
 //Returns true if the field at index matches the key,
 //returns false otherwise
 //
-//    fieldCount(input) > 0
-//    0 <= index < fieldCount(input)
-bool fieldIs(const char *key, const size_t index, const char *input);
+//    fieldCount(line) > 0
+//    0 <= index < fieldCount(line)
+bool fieldIs(const std::string &key, size_t index, const std::string &line);
 
 
-//Stores the field at index in result.
+//Returns the field at index in the line.
 //
-//Original contents of result are lost.
-//
-//    fieldCount(input) > 0
-//    0 <= index < fieldCount(input)
-void extractField(
-    const std::string &input,
-    const size_t index,
-    std::string &result);
+//    fieldCount(line) > 0
+//    0 <= index < fieldCount(line)
+std::string grabField(size_t index, const std::string &line);
 ```

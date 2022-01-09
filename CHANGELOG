@@ -1,0 +1,27 @@
+CLIHelper, version 2.0
+
+Changed signature for readInput()
+    Switched argument order and now defaults to std::cin for input stream
+
+Implemented argumentCount()
+Implemented headIs()
+Implemented argumentIs()
+Implemented noArguments()
+Implemented grabArgument()
+
+Updated the example code
+
+Changed the signature for fieldIs()
+    Now takes strings instead of character arrays
+
+Renamed extractField() -> grabField()
+
+Changed the signature for grabField()
+    Now returns a string instead of modifying a reference
+
+Changed the signature for readInput()
+    Now returns a string instead of modifying a reference
+
+Updated README
+
+Added changelog

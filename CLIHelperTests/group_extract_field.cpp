@@ -9,7 +9,6 @@
 using std::string;
 using std::vector;
 
-#define TEST_TEXT_FILES_HOME    "test_txt/"
 
 
 
@@ -17,16 +16,15 @@ using std::vector;
 
 
 
-TEST_GROUP(extractField)
+TEST_GROUP(grabField)
 {
 
 };
 
 
-TEST(extractField, Returns_Nth_Field)
+TEST(grabField, Returns_Nth_Field)
 {
     const string testInput(" abe  bat   spamhouse    action  ");
-
 
     vector<string> expected {
         "abe",
@@ -35,12 +33,7 @@ TEST(extractField, Returns_Nth_Field)
         "action"
     };
 
-    string result;
-
     for(size_t i = 0; i < expected.size(); i++) {
-
-        extractField(testInput, i, result);
-
-        CHECK_EQUAL(expected.at(i), result);
+        CHECK_EQUAL(expected.at(i), grabField(i, testInput));
     }
 }
