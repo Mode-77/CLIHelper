@@ -155,6 +155,7 @@
     <ClCompile Include="group_field_is.cpp" />
     <ClCompile Include="group_grab_from_space.cpp" />
     <ClCompile Include="group_grab_until_space.cpp" />
+    <ClCompile Include="group_head_is.cpp" />
     <ClCompile Include="group_read_input.cpp" />
     <ClCompile Include="group_strip_leading_spaces.cpp" />
     <ClCompile Include="ifstream_tests.cpp" />

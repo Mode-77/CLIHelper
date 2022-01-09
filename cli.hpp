@@ -49,6 +49,13 @@ bool allFieldsEmpty(const std::string &fields);
 //    0 <= index < fieldCount(input)
 bool fieldIs(const char *key, const size_t index, const char *input);
 
+bool headIs(const std::string &key, const std::string &line);
+//Returns true if the head field matches the key or false
+//if it does not.
+//
+//The head field is the first field in the line.
+//
+//line must have at least one field.
 
 //Stores the field at index in result.
 //

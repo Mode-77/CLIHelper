@@ -140,6 +140,11 @@ bool fieldIs(const char *key, const size_t fieldNumber, const char *fields)
     return result.compare(key) == 0;
 }
 
+// fieldCount(fields) > 0
+bool headIs(const string &key, const string &line)
+{
+    return fieldIs(key.c_str(), 0, line.c_str());
+}
 
 // fieldCount(input) > 0
 // 0 <= index < fieldCount(input)
