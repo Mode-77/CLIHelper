@@ -27,6 +27,16 @@ void readInput(std::string &buffer, std::istream &stream = std::cin);
 unsigned int fieldCount(const std::string &input);
 
 
+unsigned int argumentCount(const std::string &line);
+//Returns the number of arguments in the line.
+//
+//Arguments are any fields after the first.
+//
+//line must have at least one field.
+
+
+
+
 //Returns true if there are no fields in the line,
 //returns false otherwise
 bool allFieldsEmpty(const std::string &fields);
