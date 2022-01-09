@@ -117,12 +117,14 @@ unsigned int fieldCount(const std::string &input)
     return fieldsCounted;
 }
 
+
 // allFieldsEmpty(line) == false
 unsigned int argumentCount(const string &line)
 {
     //Arguments are any fields after the first
     return fieldCount(line) - 1;
 }
+
 
 bool allFieldsEmpty(const std::string &fields)
 {
@@ -139,17 +141,20 @@ bool fieldIs(const string &key, const size_t fieldNumber, const string &line)
     return result.compare(key) == 0;
 }
 
+
 // fieldCount(line) > 0
 bool headIs(const string &key, const string &line)
 {
     return fieldIs(key, 0, line);
 }
 
+
 // argumentCount(line) > 0
 bool argumentIs(const string &key, const size_t N, const string &line)
 {
     return fieldIs(key, 1 + N, line);
 }
+
 
 // fieldCount(input) > 0
 // 0 <= index < fieldCount(input)
@@ -171,11 +176,13 @@ void extractField(
     extractField(remainder, index - 1, result);
 }
 
+
 // allFieldsEmpty(line) == false
 bool noArguments(const string &line)
 {
     return argumentCount(line) == 0;
 }
+
 
 // noArguments(line) == false
 string grabArgument(const size_t N, const string &line)
