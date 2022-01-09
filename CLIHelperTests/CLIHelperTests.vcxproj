@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="group_all_fields_empty.cpp" />
     <ClCompile Include="group_argument_count.cpp" />
+    <ClCompile Include="group_argument_is.cpp" />
     <ClCompile Include="group_chop.cpp" />
     <ClCompile Include="group_extract_field.cpp" />
     <ClCompile Include="group_field_count.cpp" />
