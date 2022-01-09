@@ -16,8 +16,8 @@ int main()
     while(true)
     {
         std::cout << ">";
-        std::string userInput;
-        readInput(userInput);
+
+        std::string userInput = readInput();
 
         if(allFieldsEmpty(userInput))
         {

@@ -16,11 +16,8 @@
 
 
 
-//Extracts the contents of stream up to, but excluding the newline
-//character and stores them in buffer.
-//
-//Original contents of buffer are lost.
-void readInput(std::string &buffer, std::istream &stream = std::cin);
+//Returns the contents of stream up to, but excluding the newline character.
+std::string readInput(std::istream &stream = std::cin);
 
 
 //Returns true if there are no fields in the line or false

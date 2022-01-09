@@ -97,9 +97,11 @@ static void chop(const string &piece, string &whole)
 
 
 
-void readInput(string &buffer, std::istream &stream)
+string readInput(std::istream &stream)
 {
+    string buffer;
     std::getline(stream, buffer);
+    return buffer;
 }
 
 

@@ -26,11 +26,11 @@ TEST_GROUP(readInput)
 TEST(readInput, SingleNewlineReturnsEmptyString)
 {
     std::ifstream testInputFile(TEST_TEXT_FILES_HOME"single_newline.txt", std::ifstream::in);
-    std::string result;
 
-    readInput(result, testInputFile);
+    std::string result = readInput(testInputFile);
 
     testInputFile.close();
+
     CHECK(result.empty());
 }
 
@@ -38,11 +38,11 @@ TEST(readInput, SingleNewlineReturnsEmptyString)
 TEST(readInput, CopiesWhatWasRead)
 {
     std::ifstream testInputFile(TEST_TEXT_FILES_HOME"test_input.txt", std::ifstream::in);
-    std::string result;
 
-    readInput(result, testInputFile);
+    std::string result = readInput(testInputFile);
 
     testInputFile.close();
+
     CHECK(result.compare("hello") == 0);
 }
 
@@ -54,7 +54,7 @@ TEST(readInput, OverwritesNonEmptyStringBuffer)
     std::string result("This is a non-empty string.");
     CHECK_FALSE(result.empty());
 
-    readInput(result, testInputFile);
+    result = readInput(testInputFile);
 
     testInputFile.close();
 
@@ -68,23 +68,23 @@ TEST(readInput, ContinuesAfterTheNewline)
 
     std::string result;
 
-    readInput(result, testInputFile);
+    result = readInput(testInputFile);
 
     CHECK(result.compare("first") == 0);
 
-    readInput(result, testInputFile);
+    result = readInput(testInputFile);
 
     CHECK(result.compare("second") == 0);
 
-    readInput(result, testInputFile);
+    result = readInput(testInputFile);
 
     CHECK(result.compare("third") == 0);
 
-    readInput(result, testInputFile);
+    result = readInput(testInputFile);
 
     CHECK(result.compare("fourth") == 0);
 
-    readInput(result, testInputFile);
+    result = readInput(testInputFile);
 
     CHECK(result.compare("fifth") == 0);
 
@@ -100,15 +100,15 @@ TEST(readInput, ReadsSpaces)
 
     std::string result;
 
-    readInput(result, testInputFile);
+    result = readInput(testInputFile);
 
     CHECK(result.compare("first second") == 0);
 
-    readInput(result, testInputFile);
+    result = readInput(testInputFile);
 
     CHECK(result.compare("moe larry curly") == 0);
 
-    readInput(result, testInputFile);
+    result = readInput(testInputFile);
 
     CHECK(result.compare("fi phi pho fum") == 0);
 
