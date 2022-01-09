@@ -29,10 +29,10 @@ using std::string;
 ///at the end of the string.
 ///
 ///The result is stored back in the input string.
-static void stripLeadingSpaces(std::string &input)
+static void stripLeadingSpaces(string &input)
 {
     const size_t positionOfFirstNonSpace = input.find_first_not_of(" ");
-    if(positionOfFirstNonSpace == std::string::npos) {
+    if(positionOfFirstNonSpace == string::npos) {
         input.clear(); //input is all spaces or empty; return the empty string.
         return;
     }
@@ -44,14 +44,14 @@ static void stripLeadingSpaces(std::string &input)
 ///first character that is not a space.
 ///
 ///The result is stored back in the input string.
-static void grabUntilSpace(std::string &input)
+static void grabUntilSpace(string &input)
 {
     const size_t positionOfNextSpace = input.find_first_of(" ");
     if(positionOfNextSpace == 0) {
         input.clear(); //The first character is space; return the empty string.
         return;
     }
-    if(positionOfNextSpace == std::string::npos)
+    if(positionOfNextSpace == string::npos)
         return; //No spaces in input or empty; leave input unchanged.
 
     input = input.substr(0, positionOfNextSpace);
@@ -61,10 +61,10 @@ static void grabUntilSpace(std::string &input)
 ///Captures the substring beginning at the first space and ending at the end
 ///of the string.
 ///The result is stored back in the input string.
-static void grabFromSpace(std::string &input)
+static void grabFromSpace(string &input)
 {
     const size_t positionOfNextSpace = input.find_first_of(" ");
-    if(positionOfNextSpace == std::string::npos) {
+    if(positionOfNextSpace == string::npos) {
         input.clear(); //No spaces in input or empty; return the empty string.
         return;
     }
@@ -78,7 +78,7 @@ static void grabFromSpace(std::string &input)
 
 // piece is a substring of whole.
 // piece will be found at index 0.
-static void chop(const std::string &piece, std::string &whole)
+static void chop(const string &piece, string &whole)
 {
     if(piece.empty())
         return;
@@ -97,17 +97,17 @@ static void chop(const std::string &piece, std::string &whole)
 
 
 
-void readInput(std::string &buffer, std::istream &stream)
+void readInput(string &buffer, std::istream &stream)
 {
     std::getline(stream, buffer);
 }
 
 
-unsigned int fieldCount(const std::string &input)
+unsigned int fieldCount(const string &input)
 {
     unsigned int fieldsCounted = 0;
 
-    std::string remainder(input);
+    string remainder(input);
     stripLeadingSpaces(remainder);
     while(!remainder.empty()) {
         grabFromSpace(remainder);
@@ -126,7 +126,7 @@ unsigned int argumentCount(const string &line)
 }
 
 
-bool allFieldsEmpty(const std::string &fields)
+bool allFieldsEmpty(const string &fields)
 {
     return fieldCount(fields) == 0;
 }
@@ -136,7 +136,7 @@ bool allFieldsEmpty(const std::string &fields)
 // 0 <= fieldNumber < fieldCount(line)
 bool fieldIs(const string &key, const size_t fieldNumber, const string &line)
 {
-    std::string result;
+    string result;
     extractField(line, fieldNumber, result);
     return result.compare(key) == 0;
 }
@@ -159,11 +159,11 @@ bool argumentIs(const string &key, const size_t N, const string &line)
 // fieldCount(input) > 0
 // 0 <= index < fieldCount(input)
 void extractField(
-    const std::string &input,
+    const string &input,
     const size_t index,
-    std::string &result)
+    string &result)
 {
-    std::string remainder(input);
+    string remainder(input);
     stripLeadingSpaces(remainder);
 
     if(index == 0) {
