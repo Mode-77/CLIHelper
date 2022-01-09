@@ -57,6 +57,13 @@ bool headIs(const std::string &key, const std::string &line);
 //
 //line must have at least one field.
 
+bool argumentIs(const std::string &key, size_t N, const std::string &line);
+//Returns true if the Nth argument matches key or false
+//if it does not.
+//
+//line must have at least one argument.
+//N must be in the range [0, argumentCount(line) - 1]
+
 //Stores the field at index in result.
 //
 //Original contents of result are lost.
