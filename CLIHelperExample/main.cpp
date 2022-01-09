@@ -12,66 +12,77 @@
 
 int main()
 {
-    std::string userInput;
 
-    while(!fieldIs("quit", 0, userInput.c_str())) {
+    while(true)
+    {
         std::cout << ">";
+        std::string userInput;
         readInput(userInput);
 
-        if(allFieldsEmpty(userInput)) {
+        if(allFieldsEmpty(userInput))
+        {
             continue;
         }
 
-        else if(fieldIs("quit", 0, userInput.c_str())) {
-            continue;
+        else if(headIs("quit", userInput))
+        {
+            break;
         }
 
-        else if(fieldIs("read", 0, userInput.c_str())) {
-
-            if(fieldCount(userInput) == 1) {
+        else if(headIs("read", userInput))
+        {
+            if(noArguments(userInput))
+            {
                 std::cout << "Reading from anywhere\n";
             }
-
-            else if(fieldIs("file", 1, userInput.c_str())) {
-                std::cout << "Reading from file\n";
-            }
-
-            else if(fieldIs("backup", 1, userInput.c_str())) {
-                std::cout << "Reading from backup\n";
-            }
-
-            else {
-                std::string secondArgument;
-                extractField(userInput, 1, secondArgument);
-                std::cout << "Unknown option \"" << secondArgument << "\"\n";
+            else
+            {
+                std::string firstArgument = grabArgument(0, userInput);
+                if(firstArgument == "file")
+                {
+                    std::cout << "Reading from file\n";
+                }
+                else if(firstArgument == "backup")
+                {
+                    std::cout << "Reading from backup\n";
+                }
+                else
+                {
+                    std::cout << "Unknown option \"" << firstArgument << "\"\n";
+                }
             }
         }
 
-        else if(fieldIs("write", 0, userInput.c_str())) {
-
-            if(fieldCount(userInput) == 1) {
+        else if(headIs("write", userInput))
+        {
+            if(noArguments(userInput))
+            {
                 std::cout << "Error: No destination given\n";
             }
-
-            else if(fieldIs("file", 1, userInput.c_str())) {
-                std::cout << "Writing to file\n";
-            }
-
-            else if(fieldIs("backup", 1, userInput.c_str())) {
-                std::cout << "Writing to backup\n";
-            }
-
-            else {
-                std::string secondArgument;
-                extractField(userInput, 1, secondArgument);
-                std::cout << "Unknown option \"" << secondArgument << "\"\n";
+            else
+            {
+                std::string firstArgument = grabArgument(0, userInput);
+                if(firstArgument == "file")
+                {
+                    std::cout << "Writing to file\n";
+                }
+                else if(firstArgument == "backup")
+                {
+                    std::cout << "Writing to backup\n";
+                }
+                else
+                {
+                    std::cout << "Unknown option \"" << firstArgument << "\"\n";
+                }
             }
         }
 
-        else {
-            std::string firstArgument;
-            extractField(userInput, 0, firstArgument);
-            std::cout << "Unknown command \"" << firstArgument << "\"\n";
+        else
+        {
+            std::string command;
+            extractField(userInput, 0, command);
+            std::cout << "Unknown command \"" << command << "\"\n";
         }
     }
+
 }
