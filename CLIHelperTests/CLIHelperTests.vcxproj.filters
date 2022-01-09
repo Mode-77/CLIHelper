@@ -51,5 +51,8 @@
     <ClCompile Include="group_argument_count.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="group_head_is.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
