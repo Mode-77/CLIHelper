@@ -40,16 +40,11 @@ unsigned int fieldCount(const std::string &line);
 bool fieldIs(const std::string &key, size_t index, const std::string &line);
 
 
-//Stores the field at index in result.
-//
-//Original contents of result are lost.
+//Returns the field at index in the line.
 //
 //    fieldCount(line) > 0
 //    0 <= index < fieldCount(line)
-void extractField(
-    const std::string &line,
-    const size_t index,
-    std::string &result);
+std::string extractField(size_t index, const std::string &line);
 
 
 //Returns true if the head field matches the key or false

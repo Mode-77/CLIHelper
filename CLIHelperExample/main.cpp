@@ -79,8 +79,7 @@ int main()
 
         else
         {
-            std::string command;
-            extractField(userInput, 0, command);
+            std::string command = extractField(0, userInput);
             std::cout << "Unknown command \"" << command << "\"\n";
         }
     }
