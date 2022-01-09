@@ -136,7 +136,7 @@ bool allFieldsEmpty(const string &fields)
 // 0 <= fieldNumber < fieldCount(line)
 bool fieldIs(const string &key, const size_t fieldNumber, const string &line)
 {
-    string result = extractField(fieldNumber, line);
+    string result = grabField(fieldNumber, line);
     return result.compare(key) == 0;
 }
 
@@ -157,7 +157,7 @@ bool argumentIs(const string &key, const size_t N, const string &line)
 
 // fieldCount(line) > 0
 // 0 <= index < fieldCount(line)
-string extractField(const size_t index, const string &line)
+string grabField(const size_t index, const string &line)
 {
     string remainder(line);
     stripLeadingSpaces(remainder);
@@ -168,7 +168,7 @@ string extractField(const size_t index, const string &line)
     }
 
     grabFromSpace(remainder);
-    return extractField(index - 1, remainder);
+    return grabField(index - 1, remainder);
 }
 
 
@@ -182,5 +182,5 @@ bool noArguments(const string &line)
 // noArguments(line) == false
 string grabArgument(const size_t N, const string &line)
 {
-    return extractField(1 + N, line);
+    return grabField(1 + N, line);
 }

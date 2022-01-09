@@ -44,7 +44,7 @@ bool fieldIs(const std::string &key, size_t index, const std::string &line);
 //
 //    fieldCount(line) > 0
 //    0 <= index < fieldCount(line)
-std::string extractField(size_t index, const std::string &line);
+std::string grabField(size_t index, const std::string &line);
 
 
 //Returns true if the head field matches the key or false

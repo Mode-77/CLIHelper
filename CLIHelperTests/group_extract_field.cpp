@@ -16,13 +16,13 @@ using std::vector;
 
 
 
-TEST_GROUP(extractField)
+TEST_GROUP(grabField)
 {
 
 };
 
 
-TEST(extractField, Returns_Nth_Field)
+TEST(grabField, Returns_Nth_Field)
 {
     const string testInput(" abe  bat   spamhouse    action  ");
 
@@ -34,6 +34,6 @@ TEST(extractField, Returns_Nth_Field)
     };
 
     for(size_t i = 0; i < expected.size(); i++) {
-        CHECK_EQUAL(expected.at(i), extractField(i, testInput));
+        CHECK_EQUAL(expected.at(i), grabField(i, testInput));
     }
 }
