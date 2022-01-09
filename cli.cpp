@@ -14,7 +14,7 @@
 #include <cstring>
 
 
-
+using std::string;
 
 
 
@@ -117,6 +117,12 @@ unsigned int fieldCount(const std::string &input)
     return fieldsCounted;
 }
 
+//fieldCount(line) > 0
+unsigned int argumentCount(const string &line)
+{
+    //Arguments are any fields after the first
+    return fieldCount(line) - 1;
+}
 
 bool allFieldsEmpty(const std::string &fields)
 {

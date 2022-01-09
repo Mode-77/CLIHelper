@@ -93,7 +93,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CPPUTEST_HOME)\lib\CppUTestd.lib;..\Debug\CLIHelper.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(CPPUTEST_HOME)\lib\CppUTestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,7 +111,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CPPUTEST_HOME)\lib\CppUTestd.lib;..\Debug\CLIHelper.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(CPPUTEST_HOME)\lib\CppUTestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -125,7 +125,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CPPUTEST_HOME)\lib\CppUTestd.lib;..\Debug\CLIHelper.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(CPPUTEST_HOME)\lib\CppUTestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,11 +143,12 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CPPUTEST_HOME)\lib\CppUTestd.lib;..\Debug\CLIHelper.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(CPPUTEST_HOME)\lib\CppUTestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="group_all_fields_empty.cpp" />
+    <ClCompile Include="group_argument_count.cpp" />
     <ClCompile Include="group_chop.cpp" />
     <ClCompile Include="group_extract_field.cpp" />
     <ClCompile Include="group_field_count.cpp" />
@@ -158,6 +159,11 @@
     <ClCompile Include="group_strip_leading_spaces.cpp" />
     <ClCompile Include="ifstream_tests.cpp" />
     <ClCompile Include="test_runner.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CLIHelper.vcxproj">
+      <Project>{4e5eee4f-612e-4772-8cb1-428004eeda5c}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
