@@ -130,26 +130,25 @@ bool allFieldsEmpty(const std::string &fields)
 }
 
 
-// fieldCount(fields) > 0
-// 0 <= fieldNumber < fieldCount(fields)
-bool fieldIs(const char *key, const size_t fieldNumber, const char *fields)
+// fieldCount(line) > 0
+// 0 <= fieldNumber < fieldCount(line)
+bool fieldIs(const string &key, const size_t fieldNumber, const string &line)
 {
-    std::string temp(fields);    // Stringify
     std::string result;
-    extractField(temp, fieldNumber, result);
+    extractField(line, fieldNumber, result);
     return result.compare(key) == 0;
 }
 
 // fieldCount(line) > 0
 bool headIs(const string &key, const string &line)
 {
-    return fieldIs(key.c_str(), 0, line.c_str());
+    return fieldIs(key, 0, line);
 }
 
 // argumentCount(line) > 0
 bool argumentIs(const string &key, const size_t N, const string &line)
 {
-    return fieldIs(key.c_str(), 1 + N, line.c_str());
+    return fieldIs(key, 1 + N, line);
 }
 
 // fieldCount(input) > 0

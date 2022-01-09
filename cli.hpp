@@ -37,7 +37,7 @@ unsigned int fieldCount(const std::string &line);
 //
 //    fieldCount(line) > 0
 //    0 <= index < fieldCount(line)
-bool fieldIs(const char *key, const size_t index, const char *line);
+bool fieldIs(const std::string &key, size_t index, const std::string &line);
 
 
 //Stores the field at index in result.
