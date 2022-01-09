@@ -27,14 +27,12 @@ void readInput(std::string &buffer, std::istream &stream = std::cin);
 unsigned int fieldCount(const std::string &input);
 
 
-unsigned int argumentCount(const std::string &line);
 //Returns the number of arguments in the line.
 //
 //Arguments are any fields after the first.
 //
 //line must have at least one field.
-
-
+unsigned int argumentCount(const std::string &line);
 
 
 //Returns true if there are no fields in the line,
@@ -49,20 +47,23 @@ bool allFieldsEmpty(const std::string &fields);
 //    0 <= index < fieldCount(input)
 bool fieldIs(const char *key, const size_t index, const char *input);
 
-bool headIs(const std::string &key, const std::string &line);
+
 //Returns true if the head field matches the key or false
 //if it does not.
 //
 //The head field is the first field in the line.
 //
 //line must have at least one field.
+bool headIs(const std::string &key, const std::string &line);
 
-bool argumentIs(const std::string &key, size_t N, const std::string &line);
+
 //Returns true if the Nth argument matches key or false
 //if it does not.
 //
 //line must have at least one argument.
-//N must be in the range [0, argumentCount(line) - 1]
+//N must be in the range [0, argumentCount(line) - 1].
+bool argumentIs(const std::string &key, size_t N, const std::string &line);
+
 
 //Stores the field at index in result.
 //
@@ -75,6 +76,19 @@ void extractField(
     const size_t index,
     std::string &result);
 
+
+//Returns true if line has no arguments or false if it has
+//at least one argument.
+//
+//line must have at least the head field.
+bool noArguments(const std::string &line);
+
+
+//Returns the Nth argument in the line.
+//
+//line must have at least one argument.
+//N must be in the range [0, argumentCount(line) - 1].
+std::string grabArgument(size_t N, const std::string &line);
 
 
 #endif

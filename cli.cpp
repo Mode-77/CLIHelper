@@ -117,7 +117,7 @@ unsigned int fieldCount(const std::string &input)
     return fieldsCounted;
 }
 
-//fieldCount(line) > 0
+// allFieldsEmpty(line) == false
 unsigned int argumentCount(const string &line)
 {
     //Arguments are any fields after the first
@@ -170,4 +170,18 @@ void extractField(
 
     grabFromSpace(remainder);
     extractField(remainder, index - 1, result);
+}
+
+// allFieldsEmpty(line) == false
+bool noArguments(const string &line)
+{
+    return argumentCount(line) == 0;
+}
+
+// noArguments(line) == false
+string grabArgument(const size_t N, const string &line)
+{
+    string argument;
+    extractField(line, 1 + N, argument);
+    return argument;
 }
